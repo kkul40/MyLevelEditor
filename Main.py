@@ -11,14 +11,23 @@ white_grey = (64,64,64)
 white = (255,255,255)
 world_pos = [0,0]
 
-rows = 16
-maxs_col = 150
+
+
+rows = 8
+maxs_col = 100
 tile_size = screen_size[1] // rows
+print(tile_size)
 
 screen = pygame.display.set_mode((screen_size[0] + screen_size[2], screen_size[1] + screen_size[3]))
 pygame.display.set_caption("MyLevelEditor")
 
 pattern = pygame.image.load('Pattern.png').convert_alpha()
+
+tile_list = []
+for i in range(9):
+    tile_list.append(pygame.image.load('img/{}.png').format(i))
+    
+
 margin_rect = pygame.Rect(1081,0,300,721)
 
 
@@ -49,6 +58,9 @@ while True:
         if event.type == pygame.QUIT:
             pygame.quit()
             sys.exit()
+        #Keyboard Presses
+        
+        
         #Mouse Presses
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 4 and world_pos[0] < 0:
